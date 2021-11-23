@@ -1,68 +1,51 @@
 <template>
   <div class="main-page">
-    <div class="row">
-      <input-form
-        v-model="startDate"
-        label="シーズン開始日"
-        type="date"
-        option-key="startDate"
-      />
-      <input-form
-        v-model="endDate"
-        label="シーズン終了日"
-        type="date"
-        option-key="endDate"
-      />
-    </div>
-    <div class="row">
-      <input-form
-        v-model="dailyStars"
-        label="デイリー☆数"
-        type="number"
-        option-key="dailyStars"
-        :default-value="8"
-      />
-      <input-form
-        v-model="weeklyStars"
-        label="ウィークリー☆数"
-        type="number"
-        option-key="weeklyStars"
-        :default-value="63"
-      />
-    </div>
-    <div class="row">
-      <input-form
-        v-model="currentStars"
-        label="現在☆数"
-        type="number"
-        option-key="currentStars"
-      />
-      <input-form
-        v-model="goalStars"
-        label="目標☆数"
-        type="number"
-        option-key="goalStars"
-        :default-value="1100"
-      />
-    </div>
-    <div class="row">
-      <display-label label="残日数" :value="fl(restDays)" />
-    </div>
-    <div class="row">
-      <display-label label="残デイリー☆数" :value="fl(restDailyStars)" />
-      <display-label label="残ウィークリー☆数" :value="fl(restWeeklyStars)" />
-    </div>
-    <div class="row">
-      <display-label label="残ミッション☆数" :value="fl(restStars)" />
-      <display-label label="ミッション☆数猶予" :value="fl(graceStars)" />
-    </div>
-    <div class="row">
-      <display-label
-        label="予測目標達成日付"
-        :value="formatDate(estDate)"
-      />
-      <display-label label="日数猶予" :value="fl(graceDays)" />
-    </div>
+    <input-form
+      v-model="startDate"
+      label="シーズン開始日"
+      type="date"
+      option-key="startDate"
+    />
+    <input-form
+      v-model="endDate"
+      label="シーズン終了日"
+      type="date"
+      option-key="endDate"
+    />
+    <input-form
+      v-model="dailyStars"
+      label="デイリー☆数"
+      type="number"
+      option-key="dailyStars"
+      :default-value="8"
+    />
+    <input-form
+      v-model="weeklyStars"
+      label="ウィークリー☆数"
+      type="number"
+      option-key="weeklyStars"
+      :default-value="63"
+    />
+    <input-form
+      v-model="currentStars"
+      label="現在☆数"
+      type="number"
+      option-key="currentStars"
+    />
+    <input-form
+      v-model="goalStars"
+      label="目標☆数"
+      type="number"
+      option-key="goalStars"
+      :default-value="1100"
+    />
+    <display-label label="残日数" :value="fl(restDays)" />
+    <display-label label="残デイリー☆数" :value="fl(restDailyStars)" />
+    <display-label label="残ウィークリー☆数" :value="fl(restWeeklyStars)" />
+    <display-label label="残ミッション☆数" :value="fl(restStars)" />
+    <display-label label="ミッション☆数猶予" :value="fl(graceStars)" />
+    <display-label label="予測目標達成日付" :value="formatDate(estDate)" />
+    <display-label label="日数猶予" :value="fl(graceDays)" />
   </div>
 </template>
 
@@ -141,18 +124,19 @@ export default {
 
 <style lang="scss" scoped>
 .main-page {
+  max-width: 45rem;
   background-color: white;
   filter: drop-shadow(2px 2px 5px lightgray);
   font-size: 18px;
   font-family: 'Meiryo UI';
   margin: 2rem auto;
-  .row {
-    margin: 1rem;
-    display: flex;
-    > * {
-      margin: 0 1rem;
-      width: 50%;
-    }
+  display: flex;
+  flex-wrap: wrap;
+  > * {
+    margin: 0.5rem 1rem;
+    width: 20rem;
+    flex-grow: 1;
+    flex-shrink: 0;
   }
 }
 </style>

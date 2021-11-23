@@ -5,6 +5,7 @@
     class="text-field"
     outlined
     dense
+    block
     v-bind="$props"
   />
 </template>

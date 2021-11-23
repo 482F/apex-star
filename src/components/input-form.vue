@@ -63,10 +63,4 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-.input-form {
-  .form {
-    width: 300px;
-  }
-}
-</style>
+<style lang="scss" scoped></style>
